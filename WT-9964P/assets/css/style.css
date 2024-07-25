@@ -1,0 +1,138 @@
+#nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+
+#nav li button,
+.modal-footer button,
+#nav li button:visited,
+.modal-footer button:visited {
+  background-color: #ff1b20 !important;
+  border-color: #ff1b20 !important;
+}
+
+#nav li button:hover,
+.modal-footer button:hover,
+#nav li button:active,
+.modal-footer button:active {
+  background-color: #be1812 !important;
+  border-color: #be1812 !important;
+}
+
+#nav a:hover {
+  color: #ff1b20;
+}
+
+#nav ul li > a:hover {
+  color: rgb(163, 163, 163) !important;
+}
+
+.telefon {
+  max-width: 11.5rem;
+  position: relative;
+}
+
+@media (min-width: 576px) {
+  .telefon {
+    max-width: 14.5rem;
+  }
+
+  .daire {
+    width: 20.5rem;
+    height: 20.5rem;
+    border-radius: 50%;
+    background-color: rgb(145, 222, 245);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+/* top: 50%; yapınca .daire divi, .telefon div'inin yüksekliğinin %50'si kadar üstten boşluk bırakıldı. 
+left yapınca da aynı mantık .telefon divinin genişliğinin yarısı kadar soldan boşluk bırakıldı.
+böyle yapınca öğenin sol üst köşesi tam ortaya geldi. sonra CSS'de transform özelliği, elementleri taşımanıza, döndürmenize, ölçeklendirmenize ve eğmenize olanak tanır. onu kullandık 
+transform özelliğinin translate diye bi fonksiyonu var, öğeyi x ve y eksenlerinde taşır. mevcut konumundan 50 px sağa 100 px aşağı dersen mesela transform: translate(50px,100px); dersin.
+biz -50% kullanınca öğenin kendi boyutunun yarısı kadar sola ve yukarı taşıdık. e sol üst köşesi ortadaydı, böylece tam merkezi ortada oldu.
+diğer transform fonksiyonları: https://kodlamavakti.com/css/2-boyutlu-donusumler/ */
+
+@media (min-width: 768px) {
+  .telefon {
+    max-width: 17rem;
+  }
+
+  .daire {
+    width: 24.5rem;
+    height: 24.5rem;
+  }
+
+  #features .daire {
+    width: 15rem;
+    height: 15rem;
+    left: 50px;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (min-width: 1400px) {
+  .telefon {
+    max-width: 20rem;
+  }
+
+  .daire {
+    width: 28.5rem;
+    height: 28.5rem;
+  }
+
+  #features .daire {
+    width: 20rem;
+    height: 20rem;
+    left: 50px;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#age {
+  background-color: #ff1b20;
+}
+
+#footer a {
+  color: gray;
+}
+
+#footer a:hover {
+  color: rgb(206, 202, 202);
+}
+
+#banner {
+  color: white;
+  background-color: rgb(145, 222, 245);
+  background-image: url(https://wallpapers.com/images/featured/brawl-lgmk2y884nb65e3g.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+#banner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: absolute; /* üstte banner relative ya, bunu absolute yapınca bannere göre top left yaptık */
+  top: 0;
+  left: 0;
+  opacity: 0.65; /* 1 verirsek resim görünmez */
+  z-index: 0; /* aşağıda da z-index 10 verdik yani h2 yazıları falan bu karartmanın önüne çıkacak */
+}
+#banner > * {
+  z-index: 10;
+  position: relative;
+}
+/* genişliğe göre resimler oturuyo ya, 
+uzunluğu genişliğinden çok daha fazla olanlar için elle @media şeklinde ayarlamamız lazım çünkü genişliği %100 yapınca baya uzun olduğu için çok uzun oluyor,
+yani genişliği boyundan büyük olanlar için sıkıntı yok o güzelce ayarlanıyor ama genişliği boyundan az olanlar için sıkıntı var kendimiz ayarlamalıyız
+ */
